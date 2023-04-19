@@ -1,0 +1,53 @@
+@import '../../../styles.scss';
+
+.card {
+    background-color: $light-blue2;
+    color: rgb(51, 28, 94);
+    
+    .upper {
+        height: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        p {
+            text-align: center;
+            font-size: 2em;
+            font-weight: bolder;
+        }
+        img {
+            margin-top: 1.5rem;
+            width: 80px;
+            height: 80px;
+            mix-blend-mode: multiply;
+        }
+    }
+    hr {
+        margin: 0;
+    }
+    .card-body {
+        font-size: 0.9em;
+        
+        .inner-body {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+
+            .card-text {
+                padding: 5px;
+                width: 50%;
+                font-weight: bold;
+            }
+
+        
+        }
+
+        .card-title {
+            text-align: center;
+        }
+        .card-title, a{
+           font-size: 0.7em;
+        }
+    }
+    
+}

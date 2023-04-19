@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+
+//@import '/src/app/app.component.scss';
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+$light-blue: #B9EDDD;
+$light-blue2: #87CBB9;
+$darker-blue: #569DAA;
+$dark-blue: #577D86;
+
+html {
+    width: 100vw;
+    height: 100vh;
+    background-color: $light-blue;
+    overflow-x: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';

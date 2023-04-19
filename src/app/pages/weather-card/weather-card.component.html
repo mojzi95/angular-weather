@@ -1,0 +1,22 @@
+<div class="card" style="width: 18rem;">
+    <div class="upper">
+        <img class="card-img-top" src="../../../assets/icons8-rain.gif" alt="Card image cap">
+        <p>37°C</p>
+    </div>
+    <hr>
+    <div class="card-body">
+      <h5 class="card-title">Additional information</h5>
+      <div class="inner-body">
+        <p class="card-text">Max. temp.: 30°C</p>
+        <p class="card-text">Min. temp.: 27°C</p>
+        <p class="card-text">Humidity: 5% </p>
+        <p class="card-text">Wind: 20km/h </p>
+
+        <p class="card-text" *ngIf="!show">Macska</p>
+        <p class="card-text" *ngIf="!show">Kutya</p>
+        <p class="card-text" *ngIf="!show">Cica</p>
+        <p class="card-text" *ngIf="!show">Blöki</p>      
+      </div>
+      <span (click)="seeMore()" [@visibleHidden]><a href="#">{{linkText}}</a></span>
+    </div>
+  </div>
