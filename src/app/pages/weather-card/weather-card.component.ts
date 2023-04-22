@@ -1,5 +1,5 @@
-import { state, trigger } from '@angular/animations';
-import { Component } from '@angular/core';
+import { animate, state, style, transition, trigger } from '@angular/animations';
+import { Component, OnInit } from '@angular/core';
 
 
 @Component({
@@ -7,19 +7,25 @@ import { Component } from '@angular/core';
   templateUrl: './weather-card.component.html',
   styleUrls: ['./weather-card.component.scss'],
   animations: [
-   
+    
   ]
 })
-export class WeatherCardComponent {
+export class WeatherCardComponent implements OnInit {
   public show:boolean = true;
   public linkText:any = 'See More';
 
+  
+
+  constructor() { }
+
   ngOnInit() {
-    
+   
   }
 
-  seeMore() {
-    this.show = !this.show;
+
+
+  seeMore(): void {
+    this.show = !this.show 
 
     if(this.show) {
       this.linkText= 'See More'

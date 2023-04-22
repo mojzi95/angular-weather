@@ -3,22 +3,35 @@
 .card {
     background-color: $light-blue2;
     color: rgb(51, 28, 94);
+
+    .row {
+        margin-top: 10px;
+        display: flex;
+
+        input, button {
+            background-color: $light-blue;
+            
+        }
+        input {
+            margin-right: 5px;
+        }
+    }
     
     .upper {
-        height: 150px;
+        height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
         p {
             text-align: center;
-            font-size: 2em;
+            font-size: 2.5em;
             font-weight: bolder;
         }
         img {
             margin-top: 1.5rem;
-            width: 80px;
-            height: 80px;
+            width: 100px;
+            height: 100px;
             mix-blend-mode: multiply;
         }
     }
@@ -37,6 +50,7 @@
                 padding: 5px;
                 width: 50%;
                 font-weight: bold;
+               
             }
 
         
@@ -44,9 +58,11 @@
 
         .card-title {
             text-align: center;
+            margin-bottom: 1rem
         }
         .card-title, a{
-           font-size: 0.7em;
+           font-size: 0.9em;
+           
         }
     }
     
