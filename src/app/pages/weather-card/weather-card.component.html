@@ -3,31 +3,31 @@
       <div class="row">
         <div class="col-md-5 mx-auto">
             <div class="input-group">
-                <input class="form-control border-end-0 border rounded-pill" type="search" placeholder="Nádudvar" id="example-search-input">
+                <input class="form-control border-end-0 border rounded-pill" [placeholder]="cityName" type="search" id="example-search-input" [(ngModel)]="cityName">
                 <span class="input-group-append">
                     <button class="btn btn-outline-secondary border-bottom-0 border rounded-pill ms-n5" type="button">
-                        <i class="bi bi-search"></i>
+                        <i class="bi bi-search"  (ngSubmit)="searchCountry()" type="submit"></i>
                     </button>
                 </span>
             </div>
         </div>
     </div>
         <img class="card-img-top" src="../../../assets/icons8-rain.gif" alt="Card image cap">
-        <p>37°C</p>
+        <p>{{this.weatherData?.main.temp | number: '1.0-0'}}°C</p>
     </div>
     <hr>
     <div class="card-body">
       <h5 class="card-title">Additional information</h5>
       <div class="inner-body" >
-        <p class="card-text">Max. temp.: 30°C</p>
-        <p class="card-text">Min. temp.: 27°C</p>
-        <p class="card-text">Humidity: 5% </p>
-        <p class="card-text">Wind: 20km/h </p>
+        <p class="card-text">Max. temp.: {{this.weatherData?.main.temp_max | number: '1.0-0'}}°C</p>
+        <p class="card-text">Min. temp.: {{this.weatherData?.main.temp_min | number: '1.0-0'}}°C</p>
+        <p class="card-text">Humidity: {{this.weatherData?.main.humidity}}% </p>
+        <p class="card-text">Wind: {{this.weatherData?.wind.speed}}km/h</p>
 
-        <p class="card-text" *ngIf="!show">Macska</p>
-        <p class="card-text" *ngIf="!show">Kutya</p>
-        <p class="card-text" *ngIf="!show">Cica</p>
-        <p class="card-text" *ngIf="!show">Blöki</p>      
+        <p class="card-text" *ngIf="!show">Weather: {{this.weatherData?.weather[0].description}}</p>
+        <p class="card-text" *ngIf="!show">Feels like: {{this.weatherData?.main.feels_like | number: '1.0-0'}}°C</p>
+        <p class="card-text" *ngIf="!show">Sunrise: {{this.srTime}}AM</p>
+        <p class="card-text" *ngIf="!show">Sunset: {{this.ssTime}}PM</p>      
       </div>
       <span (click)="seeMore()"><a href="#">{{linkText}} </a></span>
     </div>

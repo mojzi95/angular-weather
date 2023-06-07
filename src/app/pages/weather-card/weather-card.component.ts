@@ -1,5 +1,8 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChange, SimpleChanges } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable, concatMap, filter, map, zip } from 'rxjs';
+import { WeatherService } from 'src/app/services/weather.service';
 
 
 @Component({
@@ -13,14 +16,35 @@ import { Component, OnInit } from '@angular/core';
 export class WeatherCardComponent implements OnInit {
   public show:boolean = true;
   public linkText:any = 'See More';
+  public weatherData: any;
+  public srTime: any;
+  public ssTime: any;
 
   
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private weatherService: WeatherService) { }
+  @Input() public cityName: string = "Nádudvar"
+ 
+  
+  
+  searchCountry(){
+    console.log(this.cityName)
+    return this.cityName
    
   }
+  
+
+  ngOnInit() {
+
+   this.weatherService.getWeatherForCity(this.cityName).subscribe(data => {this.weatherData = data; console.log(this.weatherData)
+  
+    this.srTime = new Date(this.weatherData.sys.sunrise*1000).getHours()+":"+new Date(this.weatherData.sys.sunrise*1000).getMinutes()
+    this.ssTime = new Date(this.weatherData.sys.sunset*1000).getHours()+":"+new Date(this.weatherData.sys.sunset*1000).getMinutes()
+  })
+  }
+
+ 
+
 
 
 
@@ -33,4 +57,6 @@ export class WeatherCardComponent implements OnInit {
       this.linkText = 'See Less'
     }
   }
+
+ 
 }
